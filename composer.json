@@ -1,0 +1,10 @@
+{
+    "require": {
+        "google/cloud-bigquery": "^1.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Google\\":"src"
+        }
+    }
+}
