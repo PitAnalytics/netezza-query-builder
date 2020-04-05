@@ -42,6 +42,7 @@ foreach($bseg as $line){
   unset($line);
 
   echo($insertable);
+  echo('<br/>');
 
 }
 
