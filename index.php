@@ -35,6 +35,13 @@ FROM
 WHERE BUKRS = '5200' 
 ORDER BY CAST(BUDAT AS INT64);");
 
-print_r($bseg);
+foreach($bseg as $line){
 
+  $insertable =  "('".$line["BUKRS"]."','".$line["BLDAT"]."','".$line["BUDAT"]."','".$line["SGTXT"]."','".$line["HKONT"]."','".$line["BLART"]."','".$line["DMBTR"]."','".$line["WRBTR"]."','".$line["PSWSL"]."','".$line["PSWBT"]."','".$line["PROJK"]."','".$line["ZUONR"]."),";
+
+  unset($line);
+
+  echo($insertable);
+
+}
 
