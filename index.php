@@ -90,7 +90,11 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
       $curedLine["WRBTR"].",".
       $curedLine["PSWSL"].",".
       $curedLine["PSWBT"].",".
+      $curedLine["PRCTR"].",".
+      $curedLine["LIFNR"].",".
+      $curedLine["KUNNR"].",".
       $curedLine["PROJK"].",".
+      $curedLine["DBBLG"].",".
       $curedLine["ZUONR"].")";
 
       if($i!==($size-1)){
