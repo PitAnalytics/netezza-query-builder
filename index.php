@@ -80,21 +80,20 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
 
       print_r($curedLine);
 
-      /*
       $insertable =  "('".
-      $line["BUKRS"]."','".
-      $line["KOSTL"]."','".
-      $line["BLDAT"]."','".
-      $line["BUDAT"]."','".
-      $line["SGTXT"]."','".
-      $line["HKONT"]."','".
-      $line["BLART"]."','".
-      $line["DMBTR"]."','".
-      $line["WRBTR"]."','".
-      $line["PSWSL"]."','".
-      $line["PSWBT"]."','".
-      $line["PROJK"]."','".
-      $line["ZUONR"]."'),";*/
+      $curedLine["BUKRS"]."','".
+      $curedLine["KOSTL"]."','".
+      $curedLine["BLDAT"]."','".
+      $curedLine["BUDAT"]."','".
+      $curedLine["SGTXT"]."','".
+      $curedLine["HKONT"]."','".
+      $curedLine["BLART"]."','".
+      $curedLine["DMBTR"]."','".
+      $curedLine["WRBTR"]."','".
+      $curedLine["PSWSL"]."','".
+      $curedLine["PSWBT"]."','".
+      $curedLine["PROJK"]."','".
+      $curedLine["ZUONR"]."'),";
 
       unset($line);
       //echo($insertable);
