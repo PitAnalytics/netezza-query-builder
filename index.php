@@ -63,7 +63,7 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
 
       foreach ($line as $key => $value) {
 
-        if($value===''){
+        if($value===''||!isset($value)){
 
           $curedLine[$key]="null";
 
