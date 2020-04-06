@@ -97,7 +97,7 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
       $line["ZUONR"]."'),";*/
 
       unset($line);
-      echo($insertable);
+      //echo($insertable);
       echo('<br/>');
     
     }
