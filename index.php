@@ -78,7 +78,7 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
 
       unset($line);
 
-      $insertable =  "('".
+      $insertable =  "(".
       $curedLine["BUKRS"].",".
       $curedLine["KOSTL"].",".
       $curedLine["BLDAT"].",".
