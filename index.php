@@ -46,6 +46,7 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
 
     echo('INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PROJK,ZUONR)');
     echo('<br>');
+    echo('VALUES');
     foreach($bseg as $line){
     
       $insertable =  "('".$line["BUKRS"]."','".$line["KOSTL"]."','".$line["BLDAT"]."','".$line["BUDAT"]."','".$line["SGTXT"]."','".$line["HKONT"]."','".$line["BLART"]."','".$line["DMBTR"]."','".$line["WRBTR"]."','".$line["PSWSL"]."','".$line["PSWBT"]."','".$line["PROJK"]."','".$line["ZUONR"]."'),";
