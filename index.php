@@ -57,7 +57,7 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
 
     for($i=0; $i<$size; $i++){
 
-      $line = $bseg[0];
+      $line = $bseg[$i];
 
       $curedLine=[];
 
@@ -95,16 +95,17 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
 
       if($i!==($size-1)){
 
-        $curedLine.=",";
+        $insertable.=",";
 
       }
       else{
 
-        $curedLine.=";";        
+        $insertable.=";";        
 
       }
 
       unset($line);
+      unset($bseg[$i]);
       echo($insertable);
       echo('<br/>');
     
