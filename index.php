@@ -9,9 +9,9 @@ require_once 'vendor/autoload.php';
 
 use App\Google\BigQuerySingleton as BigQuerySingleton;
 
-if(isset($_GET['sociedad'])){
+if(!isset($_GET['sociedad'])){
 
-  die('please set params correctly');
+  die('por favor agregar una sociedad');
 
 }
 else{
@@ -41,7 +41,7 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
     ZUONR
     FROM
     `estado-de-resultados-266105.bseg_2020.bseg_2020_aio`
-    WHERE BUKRS = '5200' 
+    WHERE BUKRS = '".$sociedad."' 
     ORDER BY CAST(BUDAT AS INT64);");
 
     echo('INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PROJK,ZUONR)');
