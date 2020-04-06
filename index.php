@@ -66,6 +66,7 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
         if($value===''||!isset($value)){
 
           $curedLine[$key]="null";
+          echo('bad');
 
         }
         else{
