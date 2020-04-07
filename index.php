@@ -39,7 +39,6 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
     for($i=0; $i<$size; $i++){
 
       $line = $bseg[$i];
-
       $curedLine=[];
 
       foreach ($line as $key => $value) {
