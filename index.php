@@ -17,42 +17,23 @@ if(!isset($_GET['sociedad'])||!isset($_GET['mes'])){
 
 }
 else{
-
-//
+////
 $sociedad = $_GET['sociedad'];
 $mes = $_GET['mes'];
-
-//
+////
 $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-266105']);
 
   $bseg = $bigQuery->query(
-    "SELECT
-    BUKRS, 
-    KOSTL, 
-    BLDAT, 
-    BUDAT, 
-    SGTXT, 
-    HKONT, 
-    BLART, 
-    DMBTR, 
-    WRBTR, 
-    PSWSL, 
-    PSWBT, 
-    PRCTR, 
-    LIFNR, 
-    KUNNR, 
-    PROJK, 
-    DBBLG, 
-    ZUONR 
+    "SELECT BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR
     FROM
     `estado-de-resultados-266105.bseg_2020.bseg_2020_aio`
     WHERE BUKRS = '".$sociedad."' 
     AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = $mes 
     ORDER BY CAST(BUDAT AS INT64);");
     $size = count($bseg);
-    echo('INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR)');
-    echo('<br>');
-    echo('VALUES');
+    echo("INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR)");
+    echo("<br/>");
+    echo("VALUES");
 
 
     for($i=0; $i<$size; $i++){
@@ -95,7 +76,9 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
       $curedLine["KUNNR"].",".
       $curedLine["PROJK"].",".
       $curedLine["DBBLG"].",".
-      $curedLine["ZUONR"].")";
+      $curedLine["ZUONR"].",".
+      $curedLine["SHKZG"].",".
+      $curedLine["BELNR"].")";
 
       if($i!==($size-1)){
 
