@@ -60,25 +60,25 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
       unset($line);
 
       $insertable =  "(".
-      $curedLine["BUKRS"].",".
-      $curedLine["KOSTL"].",".
-      $curedLine["BLDAT"].",".
-      $curedLine["BUDAT"].",".
-      $curedLine["SGTXT"].",".
-      $curedLine["HKONT"].",".
-      $curedLine["BLART"].",".
-      $curedLine["DMBTR"].",".
-      $curedLine["WRBTR"].",".
-      $curedLine["PSWSL"].",".
-      $curedLine["PSWBT"].",".
-      $curedLine["PRCTR"].",".
-      $curedLine["LIFNR"].",".
-      $curedLine["KUNNR"].",".
-      $curedLine["PROJK"].",".
-      $curedLine["DBBLG"].",".
-      $curedLine["ZUONR"].",".
-      $curedLine["SHKZG"].",".
-      $curedLine["BELNR"].")";
+      $curedLine["BUKRS"].",".//sociedad
+      $curedLine["KOSTL"].",".//ceco
+      $curedLine["BLDAT"].",".//fecha_documento
+      $curedLine["BUDAT"].",".//fecha_base
+      $curedLine["SGTXT"].",".//texto
+      $curedLine["HKONT"].",".//cuenta
+      $curedLine["BLART"].",".//tipo_documento
+      $curedLine["DMBTR"].",".//monto_base
+      $curedLine["WRBTR"].",".//monto_documento
+      $curedLine["PSWSL"].",".//moneda_documento
+      $curedLine["PSWBT"].",".//tipo_cambio
+      $curedLine["PRCTR"].",".//cebe
+      $curedLine["LIFNR"].",".//numero_proveedor
+      $curedLine["KUNNR"].",".//numero_documento
+      $curedLine["PROJK"].",".//pep
+      $curedLine["DBBLG"].",".//referencia
+      $curedLine["ZUONR"].",".//asignacion
+      $curedLine["SHKZG"].",".//tipo_saldo
+      $curedLine["BELNR"].")";//numero_documento
 
       if($i!==($size-1)){
 
@@ -86,8 +86,6 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
 
       }
       else{
-
-        $insertable.=";";        
 
       }
 
