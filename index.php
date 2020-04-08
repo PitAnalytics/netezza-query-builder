@@ -22,15 +22,36 @@ $mes = $_GET['mes'];
 $fraccion =$_GET['fraccion'];
 ////
 $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-266105']);
+////
 
-  $bseg = $bigQuery->query(
-    "SELECT BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR
-    FROM
-    `estado-de-resultados-266105.bseg_2020.bseg_2020_aio`
-    WHERE BUKRS = '".$sociedad."' 
-    AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$mes." 
-    AND CAST(SUBSTR(BUDAT,7,2) AS INT64) <= ".$fraccion." 
-    ORDER BY CAST(BUDAT AS INT64);");
+$intervalo;
+
+switch ($fraccion) {
+  case '0':
+  break;
+  case '1':
+  break;
+  case '2':
+  break;
+  case '3':
+  break;
+  case '4':
+  break;
+  case '5':
+  break;
+  default:
+    break;
+}
+
+$query ="SELECT BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR 
+FROM 
+`estado-de-resultados-266105.bseg_2020.bseg_2020_aio` 
+WHERE BUKRS = '".$sociedad."' 
+AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$mes." 
+AND CAST(SUBSTR(BUDAT,7,2) AS INT64) <= 10 
+ORDER BY CAST(BUDAT AS INT64); ";
+////
+  $bseg = $bigQuery->query($query);
     $size = count($bseg);
 
     for($i=0; $i<$size; $i++){
@@ -41,14 +62,10 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
       foreach ($line as $key => $value) {
 
         if($value===''||!isset($value)){
-
           $curedLine[$key]="null";
-
         }
         else{
-
           $curedLine[$key]="'".$value."'";
-
         }
 
       }
