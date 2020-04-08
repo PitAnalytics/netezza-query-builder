@@ -10,7 +10,7 @@ require_once 'vendor/autoload.php';
 
 use App\Google\BigQuerySingleton as BigQuerySingleton;
 
-if(!isset($_GET['sociedad'])||!isset($_GET['mes'])){
+if(!isset($_GET['sociedad'])||!isset($_GET['mes'])||!isset($_GET['fraccion'])){
 
   die('por favor agregar todos los campos');
 
@@ -53,6 +53,8 @@ switch ($fraccion) {
     $diaMaximo = "31";
     break;
   default:
+    $diaMinimo = "1";
+    $diaMaximo = "5";
     break;
 }
 
@@ -66,6 +68,8 @@ ORDER BY CAST(BUDAT AS INT64); ";
 ////
   $bseg = $bigQuery->query($query);
     $size = count($bseg);
+
+    echo("--".$size." filas");
 
     for($i=0; $i<$size; $i++){
 
