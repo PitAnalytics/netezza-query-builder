@@ -6,7 +6,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 set_time_limit(120);
 
-
 require_once 'vendor/autoload.php';
 
 use App\Google\BigQuerySingleton as BigQuerySingleton;
@@ -20,6 +19,7 @@ else{
 ////
 $sociedad = $_GET['sociedad'];
 $mes = $_GET['mes'];
+$fraccion =$_GET['fraccion'];
 ////
 $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-266105']);
 
@@ -28,7 +28,8 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
     FROM
     `estado-de-resultados-266105.bseg_2020.bseg_2020_aio`
     WHERE BUKRS = '".$sociedad."' 
-    AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = $mes 
+    AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$mes." 
+    AND CAST(SUBSTR(BUDAT,7,2) AS INT64) <= ".$fraccion." 
     ORDER BY CAST(BUDAT AS INT64);");
     $size = count($bseg);
 
@@ -55,25 +56,25 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
       unset($line);
 
       $insertable =  "(".
-      $curedLine["BUKRS"].",".//sociedad
-      $curedLine["KOSTL"].",".//ceco
-      $curedLine["BLDAT"].",".//fecha_documento
-      $curedLine["BUDAT"].",".//fecha_base
-      $curedLine["SGTXT"].",".//texto
-      $curedLine["HKONT"].",".//cuenta
-      $curedLine["BLART"].",".//tipo_documento
-      $curedLine["DMBTR"].",".//monto_base
-      $curedLine["WRBTR"].",".//monto_documento
-      $curedLine["PSWSL"].",".//moneda_documento
-      $curedLine["PSWBT"].",".//tipo_cambio
-      $curedLine["PRCTR"].",".//cebe
-      $curedLine["LIFNR"].",".//numero_proveedor
-      $curedLine["KUNNR"].",".//numero_documento
-      $curedLine["PROJK"].",".//pep
-      $curedLine["DBBLG"].",".//referencia
-      $curedLine["ZUONR"].",".//asignacion
-      $curedLine["SHKZG"].",".//tipo_saldo
-      $curedLine["BELNR"].");";//numero_documento
+      $curedLine["BUKRS"].",".  //sociedad
+      $curedLine["KOSTL"].",".  //ceco
+      $curedLine["BLDAT"].",".  //fecha_documento
+      $curedLine["BUDAT"].",".  //fecha_base
+      $curedLine["SGTXT"].",".  //texto
+      $curedLine["HKONT"].",".  //cuenta
+      $curedLine["BLART"].",".  //tipo_documento
+      $curedLine["DMBTR"].",".  //monto_base
+      $curedLine["WRBTR"].",".  //monto_documento
+      $curedLine["PSWSL"].",".  //moneda_documento
+      $curedLine["PSWBT"].",".  //tipo_cambio
+      $curedLine["PRCTR"].",".  //cebe
+      $curedLine["LIFNR"].",".  //numero_proveedor
+      $curedLine["KUNNR"].",".  //numero_documento
+      $curedLine["PROJK"].",".  //pep
+      $curedLine["DBBLG"].",".  //referencia
+      $curedLine["ZUONR"].",".  //asignacion
+      $curedLine["SHKZG"].",".  //tipo_saldo
+      $curedLine["BELNR"].");"; //numero_documento
 
       unset($line);
       unset($bseg[$i]);
