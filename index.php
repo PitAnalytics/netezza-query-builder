@@ -31,8 +31,6 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
     AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = $mes 
     ORDER BY CAST(BUDAT AS INT64);");
     $size = count($bseg);
-    echo("INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
-    echo("VALUES");
 
     for($i=0; $i<$size; $i++){
 
@@ -79,6 +77,8 @@ $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-2
 
       unset($line);
       unset($bseg[$i]);
+      echo("INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
+      echo("VALUES ");
       echo($insertable);
       echo('<br/>');
     
