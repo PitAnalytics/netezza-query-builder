@@ -69,9 +69,9 @@ ORDER BY CAST(BUDAT AS INT64); ";
   $bseg = $bigQuery->query($query);
     $size = count($bseg);
 
-    echo("--"." filas".$size."<br/>");
-    echo("--"." mes".$mes."<br/>");
-    echo("--"." dias :".$diaMinimo."-".$diaMaximo."<br/>");
+    echo("--"." filas: ".$size."<br/>");
+    echo("--"." mes: ".$mes."<br/>");
+    echo("--"." dias: ".$diaMinimo."-".$diaMaximo."<br/>");
 
 
     for($i=0; $i<$size; $i++){
