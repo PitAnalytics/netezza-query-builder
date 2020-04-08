@@ -24,21 +24,34 @@ $fraccion =$_GET['fraccion'];
 $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-266105']);
 ////
 
-$intervalo;
+$diaMinimo = "1";
+$diaMaximo = "5";
 
 switch ($fraccion) {
   case '0':
-  break;
+    $diaMinimo = "1";
+    $diaMaximo = "5";
+    break;
   case '1':
-  break;
+    $diaMinimo = "6";
+    $diaMaximo = "10";
+    break;
   case '2':
-  break;
+    $diaMinimo = "11";
+    $diaMaximo = "15";
+    break;
   case '3':
-  break;
+    $diaMinimo = "16";
+    $diaMaximo = "20";
+    break;
   case '4':
-  break;
+    $diaMinimo = "21";
+    $diaMaximo = "25";
+    break;
   case '5':
-  break;
+    $diaMinimo = "26";
+    $diaMaximo = "31";
+    break;
   default:
     break;
 }
@@ -48,7 +61,7 @@ FROM
 `estado-de-resultados-266105.bseg_2020.bseg_2020_aio` 
 WHERE BUKRS = '".$sociedad."' 
 AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$mes." 
-AND CAST(SUBSTR(BUDAT,7,2) AS INT64) <= 10 
+AND CAST(SUBSTR(BUDAT,7,2) AS INT64) BETWEEN  ".$diaMinimo." AND ".$diaMaximo." 
 ORDER BY CAST(BUDAT AS INT64); ";
 ////
   $bseg = $bigQuery->query($query);
