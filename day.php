@@ -19,51 +19,16 @@ else{
 ////
 $sociedad = $_GET['sociedad'];
 $mes = $_GET['mes'];
-$fraccion =$_GET['fraccion'];
+$dia =$_GET['dia'];
 ////
 $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-266105']);
 ////
-
-$diaMinimo = "1";
-$diaMaximo = "5";
-
-switch ($fraccion) {
-  case '0':
-    $diaMinimo = "1";
-    $diaMaximo = "5";
-    break;
-  case '1':
-    $diaMinimo = "6";
-    $diaMaximo = "10";
-    break;
-  case '2':
-    $diaMinimo = "11";
-    $diaMaximo = "15";
-    break;
-  case '3':
-    $diaMinimo = "16";
-    $diaMaximo = "20";
-    break;
-  case '4':
-    $diaMinimo = "21";
-    $diaMaximo = "25";
-    break;
-  case '5':
-    $diaMinimo = "26";
-    $diaMaximo = "31";
-    break;
-  default:
-    $diaMinimo = "1";
-    $diaMaximo = "5";
-    break;
-}
-
 $query ="SELECT BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR 
 FROM 
 `estado-de-resultados-266105.bseg_2020.bseg_2020_aio` 
 WHERE BUKRS = '".$sociedad."' 
 AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$mes." 
-AND CAST(SUBSTR(BUDAT,7,2) AS INT64) BETWEEN  ".$diaMinimo." AND ".$diaMaximo." 
+AND CAST(SUBSTR(BUDAT,7,2) AS INT64) =  ".$dia." 
 ORDER BY CAST(BUDAT AS INT64); ";
 ////
   $bseg = $bigQuery->query($query);
@@ -71,7 +36,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
     echo("--"." filas: ".$size."<br/>");
     echo("--"." mes: ".$mes."<br/>");
-    echo("--"." dias: ".$diaMinimo."-".$diaMaximo."<br/>");
+    echo("--"." dia: ".$dia."<br/>");
 
     for($i=0; $i<$size; $i++){
 
