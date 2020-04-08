@@ -69,7 +69,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
   $bseg = $bigQuery->query($query);
     $size = count($bseg);
 
-    echo("--".$size."<br/>"." filas");
+    echo("--"." filas".$size."<br/>");
 
     for($i=0; $i<$size; $i++){
 
