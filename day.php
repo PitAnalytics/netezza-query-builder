@@ -41,7 +41,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
     for($i=1; $i<=$size; $i++){
 
-      $line = $bseg[$i];
+      $line = $bseg[$i-1];
       $curedLine=[];
 
       foreach ($line as $key => $value) {
@@ -92,7 +92,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
         echo(";");
         echo('<br/>');
 
-    
       }
       else{
 
