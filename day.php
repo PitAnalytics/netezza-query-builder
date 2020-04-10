@@ -90,11 +90,15 @@ ORDER BY CAST(BUDAT AS INT64); ";
       if(($i%1000)===0){
 
         echo(";");
+        echo('<br/>');
+
     
       }
       else{
 
         echo(" UNION ALL");
+        echo('<br/>');
+
 
       }
 
@@ -103,10 +107,9 @@ ORDER BY CAST(BUDAT AS INT64); ";
       unset($line);
       unset($bseg[$i]);
       echo($insertable);
-      echo('<br/>');
     
     }
 
-    echo("--EOL");
+    echo("--end batch");
 
 }
