@@ -107,4 +107,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
     
     }
 
+    echo("--EOL");
+
 }
