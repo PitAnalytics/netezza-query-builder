@@ -34,13 +34,12 @@ ORDER BY CAST(BUDAT AS INT64); ";
   $bseg = $bigQuery->query($query);
     $size = count($bseg);
 
+    echo("--"." filas: ".$sociedad."<br/>");
     echo("--"." filas: ".$size."<br/>");
     echo("--"." mes: ".$mes."<br/>");
     echo("--"." dia: ".$dia."<br/>");
-    echo("INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
-    echo('<br/>');
 
-    for($i=0; $i<$size; $i++){
+    for($i=1; $i<=$size; $i++){
 
       $line = $bseg[$i];
       $curedLine=[];
@@ -57,6 +56,14 @@ ORDER BY CAST(BUDAT AS INT64); ";
       }
 
       unset($line);
+
+      if(($i%1000)){
+
+        echo("INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
+        echo('<br/>');
+    
+      }
+
 
       $insertable =  "SELECT ".
       $curedLine["BUKRS"].",".  //sociedad
@@ -79,17 +86,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $curedLine["SHKZG"].",".  //tipo_saldo
       $curedLine["BELNR"];      //numero_documento
       
-      if($i===($size-1)||(!$i%1000)){
-
-        $insertable.="; ";
-
-
-      }else{
-
-        $insertable.=" UNION ALL "; 
-
-      }
-
       unset($line);
       unset($bseg[$i]);
       echo($insertable);
