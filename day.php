@@ -43,8 +43,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
       $o=$i+1;
       $r=$o%1000;
-
-      //echo("<p>".$i."</p><p>".$o."</p><p>".$r."</p><br/>");
       
       $line = $bseg[$i];
       $curedLine=[];
@@ -90,6 +88,9 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $curedLine["SHKZG"].",".  //tipo_saldo
       $curedLine["BELNR"];      //numero_documento
 
+      echo($insertable);
+
+
 
       if($r===0){
 
@@ -106,7 +107,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
       unset($line);
       unset($bseg[$i]);
-      echo($insertable);
       
     }
     
