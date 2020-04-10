@@ -87,7 +87,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $curedLine["BELNR"];      //numero_documento
 
 
-      if(($i%1000)===0){
+      if(!$i%1000){
 
         echo(";");
         echo('<br/>');
