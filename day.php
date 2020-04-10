@@ -85,7 +85,21 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $curedLine["ZUONR"].",".  //asignacion
       $curedLine["SHKZG"].",".  //tipo_saldo
       $curedLine["BELNR"];      //numero_documento
-      
+
+
+      if(($i%1000)===0){
+
+        echo(";");
+    
+      }
+      else{
+
+        echo(" UNION ALL");
+
+      }
+
+
+
       unset($line);
       unset($bseg[$i]);
       echo($insertable);
