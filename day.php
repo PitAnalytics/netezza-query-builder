@@ -79,13 +79,14 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $curedLine["SHKZG"].",".  //tipo_saldo
       $curedLine["BELNR"];      //numero_documento
       
-      if($i<($size-1)){
+      if($i<($size-1)||(!$i%1000)){
 
-        $insertable.=" UNION ALL "; 
+        $insertable.="; ";
+
 
       }else{
 
-        $insertable.="; ";
+        $insertable.=" UNION ALL "; 
 
       }
 
