@@ -105,7 +105,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
 
       }
-      else{
+      else if($r!==0&&$o!==$size){
 
         echo(" UNION ALL");
         echo('<br/>');
