@@ -57,7 +57,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
       unset($line);
 
-      if(($i%1000)){
+      if(($i%1000)===1){
 
         echo("INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
         echo('<br/>');
