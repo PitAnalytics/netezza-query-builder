@@ -44,7 +44,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $o=$i+1;
       $r=$o%1000;
 
-      echo("<p>".$i."</p><p>".$o."</p><p>".$r."</p><br/>");
+      //echo("<p>".$i."</p><p>".$o."</p><p>".$r."</p><br/>");
       
       $line = $bseg[$i];
       $curedLine=[];
@@ -62,7 +62,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
       unset($line);
 
-      /*
       if($r===1){
 
         echo("INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
@@ -91,7 +90,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $curedLine["SHKZG"].",".  //tipo_saldo
       $curedLine["BELNR"];      //numero_documento
 
-      */
 
       if($r===0){
 
@@ -106,12 +104,10 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
       }
 
-      /*
       unset($line);
       unset($bseg[$i]);
       echo($insertable);
-      */
-    
+      
     }
     
 
