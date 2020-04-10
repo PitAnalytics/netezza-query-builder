@@ -96,7 +96,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
         echo('<br/>');
 
       }
-      if($r!==0&&$o=$size){
+      if($r!==0&&$o===$size){
 
         echo(";");
         echo('<br/>');
