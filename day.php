@@ -20,6 +20,7 @@ else{
 $sociedad = $_GET['sociedad'];
 $mes = $_GET['mes'];
 $dia =$_GET['dia'];
+$seccion = intval($_GET['seccion']);
 ////
 $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-266105']);
 ////
@@ -42,7 +43,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
     for($i=0; $i<$size; $i++){
 
       $o=$i+1;
-      $r=$o%1000;
+      $r=$o%$seccion;
       
       $line = $bseg[$i];
       $curedLine=[];
@@ -100,6 +101,8 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
         echo(";");
         echo('<br/>');
+        echo("--------------------------------");
+
 
       }
       else{
