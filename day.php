@@ -81,14 +81,13 @@ ORDER BY CAST(BUDAT AS INT64); ";
       
       if($i<($size-1)){
 
-        $curedLine.=" UNION ALL "; 
+        $insertable.=" UNION ALL "; 
 
       }else{
 
-        $curedLine.="; ";
+        $insertable.="; ";
 
       }
-
 
       unset($line);
       unset($bseg[$i]);
