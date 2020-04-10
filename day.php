@@ -100,11 +100,8 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
 
       }
-
-
-
       unset($line);
-      unset($bseg[$i]);
+      unset($bseg[$i-1]);
       echo($insertable);
     
     }
