@@ -34,7 +34,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
   $bseg = $bigQuery->query($query);
     $size = count($bseg);
 
-    echo("--"." filas: ".$sociedad."<br/>");
+    echo("--"." sociedad: ".$sociedad."<br/>");
     echo("--"." filas: ".$size."<br/>");
     echo("--"." mes: ".$mes."<br/>");
     echo("--"." dia: ".$dia."<br/>");
@@ -90,9 +90,13 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
       echo($insertable);
 
-
-
       if($r===0){
+
+        echo(";");
+        echo('<br/>');
+
+      }
+      if($r!==0&&$o=$size){
 
         echo(";");
         echo('<br/>');
