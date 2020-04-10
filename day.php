@@ -56,7 +56,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
       unset($line);
 
-      $insertable =  "(".
+      $insertable =  "SELECT ".
       $curedLine["BUKRS"].",".  //sociedad
       $curedLine["KOSTL"].",".  //ceco
       $curedLine["BLDAT"].",".  //fecha_documento
@@ -75,12 +75,11 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $curedLine["DBBLG"].",".  //referencia
       $curedLine["ZUONR"].",".  //asignacion
       $curedLine["SHKZG"].",".  //tipo_saldo
-      $curedLine["BELNR"].");"; //numero_documento
+      $curedLine["BELNR"]." UNION ALL "; //numero_documento
 
       unset($line);
       unset($bseg[$i]);
       echo("INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
-      echo("VALUES ");
       echo($insertable);
       echo('<br/>');
     
