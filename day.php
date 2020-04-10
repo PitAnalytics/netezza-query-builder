@@ -37,6 +37,8 @@ ORDER BY CAST(BUDAT AS INT64); ";
     echo("--"." filas: ".$size."<br/>");
     echo("--"." mes: ".$mes."<br/>");
     echo("--"." dia: ".$dia."<br/>");
+    echo("INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
+    echo('<br/>');
 
     for($i=0; $i<$size; $i++){
 
@@ -79,7 +81,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
       unset($line);
       unset($bseg[$i]);
-      echo("INSERT INTO bseg(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
       echo($insertable);
       echo('<br/>');
     
