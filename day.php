@@ -44,7 +44,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $o=$i+1;
       $r=$o%1000;
 
-      echo("<p>".$i."<p/><p>.$o.<p/><p>".$r."<p/><br/>");
+      echo("<p>".$i."<p/><p>".$o."<p/><p>".$r."<p/><br/>");
       
       $line = $bseg[$i];
       $curedLine=[];
