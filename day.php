@@ -105,10 +105,11 @@ ORDER BY CAST(BUDAT AS INT64); ";
         echo('<br/>');
 
       }
+      /*
       unset($line);
       unset($bseg[$i]);
       echo($insertable);
-      
+      /*
     
     }
     
