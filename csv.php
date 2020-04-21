@@ -63,9 +63,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
   echo("#"." dia: ".$dia."<br/>");
 
     for($i=0; $i<$size; $i++){
-
-      $o=$i+1;
-      $r=$o%$seccion;
       
       $line = $bseg[$i];
       $curedLine=[];
