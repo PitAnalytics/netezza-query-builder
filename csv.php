@@ -61,6 +61,8 @@ ORDER BY CAST(BUDAT AS INT64); ";
   echo("#"." mes: ".$anualidad."<br/>");
   echo("#"." mes: ".$mes."<br/>");
   echo("#"." dia: ".$dia."<br/>");
+  echo("BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR");
+  echo('<br/>');
 
     for($i=0; $i<$size; $i++){
       
