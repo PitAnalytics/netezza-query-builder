@@ -49,7 +49,7 @@ $query =
 FROM 
 `estado-de-resultados-266105.bseg_2020.bseg_2020_aio` 
 WHERE BUKRS = '".$sociedad."' 
-AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$anualidad." 
+AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$anualidad." 
 AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$mes." 
 AND CAST(SUBSTR(BUDAT,7,2) AS INT64) =  ".$dia." 
 ORDER BY CAST(BUDAT AS INT64); ";
