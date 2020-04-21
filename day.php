@@ -119,6 +119,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
         echo(";");
         echo('<br/>');
         echo("--------------------------------");
+        echo('<br/>');
 
 
       }
