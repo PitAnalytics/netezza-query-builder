@@ -75,7 +75,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
           $curedLine[$key]="";
         }
         else{
-          $curedLine[$key]='"'.$value.'"';
+          $curedLine[$key]=$value;
         }
 
       }
