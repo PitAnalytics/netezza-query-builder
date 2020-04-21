@@ -21,7 +21,6 @@ $sociedad = $_GET['sociedad'];
 $anualidad = $_GET['anualidad'];
 $mes = $_GET['mes'];
 $dia =$_GET['dia'];
-$seccion = intval($_GET['seccion']);
 ////
 $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-266105']);
 ////
