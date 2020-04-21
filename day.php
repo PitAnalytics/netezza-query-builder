@@ -18,16 +18,38 @@ if(!isset($_GET['sociedad'])||!isset($_GET['mes'])||!isset($_GET['dia'])){
 else{
 ////
 $sociedad = $_GET['sociedad'];
+$anualidad = $_GET['anualidad'];
 $mes = $_GET['mes'];
 $dia =$_GET['dia'];
 $seccion = intval($_GET['seccion']);
 ////
 $bigQuery = BigQuerySingleton::instanciate(['projectId'=>'estado-de-resultados-266105']);
 ////
-$query ="SELECT BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR 
+$query =
+"SELECT 
+  BUKRS, 
+  KOSTL, 
+  BLDAT, 
+  BUDAT, 
+  SGTXT, 
+  HKONT, 
+  BLART, 
+  DMBTR, 
+  WRBTR, 
+  PSWSL, 
+  PSWBT, 
+  PRCTR, 
+  LIFNR, 
+  KUNNR, 
+  PROJK, 
+  DBBLG, 
+  ZUONR, 
+  SHKZG, 
+  BELNR 
 FROM 
 `estado-de-resultados-266105.bseg_2020.bseg_2020_aio` 
 WHERE BUKRS = '".$sociedad."' 
+AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$anualidad." 
 AND CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$mes." 
 AND CAST(SUBSTR(BUDAT,7,2) AS INT64) =  ".$dia." 
 ORDER BY CAST(BUDAT AS INT64); ";
@@ -37,6 +59,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
     echo("--"." sociedad: ".$sociedad."<br/>");
     echo("--"." filas: ".$size."<br/>");
+    echo("--"." mes: ".$anualidad."<br/>");
     echo("--"." mes: ".$mes."<br/>");
     echo("--"." dia: ".$dia."<br/>");
 
@@ -95,13 +118,18 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
         echo(";");
         echo('<br/>');
+        echo("--------------------------------");
+
 
       }
       if($r!==0&&$o===$size){
 
         echo(";");
         echo('<br/>');
-        echo("--------------------------------");
+        echo("------------------------------------------------------------------------------------------");
+        echo('<br/>');
+        echo("------------------------------------------------------------------------------------------");
+        echo('<br/>');
 
 
       }
