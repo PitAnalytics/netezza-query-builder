@@ -10,7 +10,7 @@ require_once 'vendor/autoload.php';
 
 use App\Google\BigQuerySingleton as BigQuerySingleton;
 
-if(!isset($_GET['sociedad'])||!isset($_GET['mes'])||!isset($_GET['dia'])){
+if(!isset($_GET['sociedad'])||!isset($_GET['mes'])||!isset($_GET['dia_1'])){
 
   die('por favor agregar todos los campos');
 
