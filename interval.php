@@ -102,7 +102,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $curedLine["DMBTR"].",".  //monto_base
       $curedLine["WRBTR"].",".  //monto_documento
       $curedLine["PSWSL"].",".  //moneda_documento
-      $curedLine["PSWBT"].",".  //tipo_cambio
       $curedLine["PRCTR"].",".  //cebe
       $curedLine["LIFNR"].",".  //numero_proveedor
       $curedLine["KUNNR"].",".  //numero_documento
