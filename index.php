@@ -37,7 +37,6 @@ $query =
   DMBTR, 
   WRBTR, 
   PSWSL, 
-  PSWBT, 
   PRCTR, 
   LIFNR, 
   KUNNR, 
@@ -86,7 +85,7 @@ ORDER BY CAST(BUDAT AS INT64); ";
 
       if($r===1){
 
-        echo("INSERT INTO input_bseg_".$sociedad."(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PSWBT,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
+        echo("INSERT INTO input_bseg_".$sociedad."(BUKRS,KOSTL,BLDAT,BUDAT,SGTXT,HKONT,BLART,DMBTR,WRBTR,PSWSL,PRCTR,LIFNR,KUNNR,PROJK,DBBLG,ZUONR,SHKZG,BELNR) ");
         echo('<br/>');
     
       }
@@ -102,7 +101,6 @@ ORDER BY CAST(BUDAT AS INT64); ";
       $curedLine["DMBTR"].",".  //monto_base
       $curedLine["WRBTR"].",".  //monto_documento
       $curedLine["PSWSL"].",".  //moneda_documento
-      $curedLine["PSWBT"].",".  //tipo_cambio
       $curedLine["PRCTR"].",".  //cebe
       $curedLine["LIFNR"].",".  //numero_proveedor
       $curedLine["KUNNR"].",".  //numero_documento
