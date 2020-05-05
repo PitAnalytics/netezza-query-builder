@@ -61,7 +61,9 @@ ORDER BY CAST(BUDAT AS INT64); ";
   echo("--"." filas: ".$size."<br/>");
   echo("--"." anualidad: ".$anualidad."<br/>");
   echo("--"." mes: ".$mes."<br/>");
-  echo("--"." dia: ".$dia_1."<br/>");
+  echo("--"." dia 1: ".$dia_1."<br/>");
+  echo("--"." dia 2: ".$dia_2."<br/>");
+
 
     for($i=0; $i<$size; $i++){
 
